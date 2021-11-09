@@ -38,8 +38,10 @@ class Main {
         cout << "REMOVING COLOR\n";
         remove_color();
       } else if (a == 4) {
+        cout << "SAVING LIST\n";
         save_list();
       } else if (a == 5) {
+        cout << "READING LIST\n";
         read_list();
       } else if (a == 6) {
         // 6
