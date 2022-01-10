@@ -9,16 +9,13 @@ using namespace std;
 
 class Main {
   public:
-    // creating the vector which will store colors and its iterator
     vector<string> colors;
     vector<string>::iterator it;
-    // creating some basic int variables
     int a;
     int x;
 
     void main() {
-      // This is the main function that runs the program continously and calls other functions to process each action
-      colors.reserve(99); // This line makes the vector capable of holding 99 items inside of it
+      colors.reserve(99);
       cout << "" << "\n" ;
       cout << "Please enter an action you would like to perform!" << "\n";
       cout << "" << "\n" ;
@@ -29,23 +26,23 @@ class Main {
       cout << "[5] - Read the list from computer" << "\n";
       cout << "[6] - Quit program\n" << "\n";
 
-      a = get_input(6); // function that gets the input of the user and returns it, user can enter a number 1 through 6
+      a = get_input(6);
 
       if (a == 1) {
         cout << "PRINTING LIST\n";
-        print_list(); // This function will print the all of the items inside the vector
+        print_list();
       } else if (a == 2) {
         cout << "ADDING COLOR\n";
-        add_color(); // This function will allow you to add a new color to the vector
+        add_color();
       } else if (a == 3) {
         cout << "REMOVING COLOR\n";
-        remove_color(); // This function will allow the user to remove a color from the vector
+        remove_color();
       } else if (a == 4) {
         cout << "SAVING LIST\n";
-        save_list(); // This function will save the list as a text file to the computer
+        save_list();
       } else if (a == 5) {
         cout << "READING LIST\n";
-        read_list(); // This function will read the text file back into the vector on top of the existing elements
+        read_list();
       } else if (a == 6) {
         // 6
         // quits program
@@ -53,11 +50,10 @@ class Main {
         exit(0);
       }
 
-      main(); // calls the main function again after whatever action has been performed
+      main();
     }
 
     int get_input(int max_input) {
-      // This function gets the input from the user up to a certain number (max_input), validates it, and returns that input
       cout << "Please enter a valid input:" << "\n";
       cin >> a;
       while(1) {
@@ -87,8 +83,12 @@ class Main {
       // 1
       // prints the list of colors from the vector
       int i;
-      for (i = 0; i < colors.size(); i++)
+      if (colors.size() == 0) {
+        cout << "The list is empty.\n";
+      } else {
+        for (i = 0; i < colors.size(); i++)
         cout << i+1 << " - " << colors[i] << "\n";
+      }
     }
 
     void add_color() {
@@ -133,14 +133,13 @@ class Main {
       {
         string new_line;
         new_line = line;
-        cout<<new_line;
+        cout<<new_line<<"\n";
         colors.push_back(new_line);
       }
     }
 };
 
 int main() {
-  // runs when you start the program and initializes the main class as "program" and calls main() from "program" to start it
   Main program;
   cout << "Welcome to the favorite color tracker!" << "\n";
   program.main();
